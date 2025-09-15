@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugavari Thazhalai | Ecommerce Website</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Combined CSS from the external stylesheet and custom styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /*nav maenu on the left as a unordered list*/
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /*nav maenu on the right as a unordered list*/
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+
+        /*nav maenu on the right as a list but without bullet*/
+        nav ul {
+            display: inline-block;
+            list-style-type: none;
+        }
+
+        /*nav maenu on the right as a vertically list with 50px gapping with each with underline*/
+        nav ul li {
+            display: inline-block;
+            margin-right: 50px;
+        }
+
+        /*nav maenu on the right as a vertically list with 50px gapping with each without underline*/
+        a {
+            text-decoration: none;
+            color: #000000;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        a:hover {
+            transform: translateY(-2px);
+        }
+
+        p {
+            color: #000000;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .col-2 {
+            flex-basis: 50%;
+            min-width: 300px;
+        }
+
+        .col-2 img {
+            max-width: 100%;
+            padding: 50px 0;
+        }
+
+        .col-2 h1 {
+            font-size: 50px;
+            line-height: 60px;
+            margin: 25px 0;
+            font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #046623;
+            color: #fff;
+            padding: 8px 30px;
+            margin: 30px 0px;
+            border-radius: 30px;
+            transition: background 0.5s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            background: #563434;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            background: radial-gradient(#c5d4e2, #206b1d);
+        }
+
+        .header .row {
+            margin-top: 70px;
+        }
+
+        .categories {
+            margin: 70px 0;
+        }
+
+        .col-3 {
+            flex-basis: 30%;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .col-3 img {
+            width: 100%;
+        }
+
+        .small-container {
+            max-width: 1080px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .col-4 {
+            flex-basis: 25%;
+            padding: 10px;
+            min-width: 200px;
+            margin-bottom: 50px;
+            transition: transform 0.5s;
+        }
+
+        .col-4 img {
+            width: 100%;
+        }
+
+        .title {
+            text-align: center;
+            margin: 0 auto 80px;
+            position: relative;
+            line-height: 60px;
+            color: #555;
+        }
+
+        .title::after {
+            content: '';
+            background: #012d12;
+            width: 80px;
+            height: 5px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h4 {
+            color: #555;
+            font-weight: normal;
+        }
+
+        .col-4 p {
+            font-size: 14px;
+        }
+
+        .rating .fa {
+            color: #095a0f;
+        }
+
+        .col-4:hover {
+            transform: translateY(-5px);
+        }
+
+        /*-----------------------offer -----------------------*/
+        .offer {
+            background: radial-gradient(#c5d4e2, #206b1d);
+            margin-top: 80px;
+            padding: 30px 0;
+        }
+
+        .col-2 .offer-img {
+            padding: 50px;
+        }
+
+        small {
+            color: #555;
+        }
+
+        /*-----------------------Testimonial -----------------------*/
+        .testimonial {
+            padding-top: 100px;
+        }
+
+        .testimonial .col-3 {
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        .testimonial .col-3 img {
+            width: 50px;
+            margin-top: 20px;
+            border-radius: 50%;
+            /*square images converted to round shape box*/
+        }
+
+        .testimonial .col-3:hover {
+            transform: translateY(-10px);
+        }
+
+        .fa.fa-quote-left {
+            font-size: 34px;
+            color: #ff523b;
+        }
+
+        .col-3 p {
+            font-size: 12px;
+            margin: 12px 0;
+            color: #777;
+        }
+
+        .testimonial .col-3 h3 {
+            font-weight: 600;
+            color: #555;
+            font-size: 16px;
+        }
+
+        /*-----------------------Brands -----------------------*/
+        .brands {
+            margin: 100px auto;
+        }
+
+        .col-5 {
+            max-width: 100px;
+            margin: 20px auto;
+        }
+
+        .col-5 img {
+            width: 100%;
+            cursor: pointer;
+            filter: grayscale(100%);
+        }
+
+        .col-5 img:hover {
+            filter: grayscale(0);
+        }
+
+        /*-----------------------Footer -----------------------*/
+        .footer {
+            background: #000;
+            /*black;*/
+            color: #8a8a8a;
+            font-size: 14px;
+            padding: 60px 0 20px;
+        }
+
+        .footer p {
+            color: #8a8a8a;
+        }
+
+        .footer h3 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .footer-col-1,
+        .footer-col-2,
+        .footer-col-3,
+        .footer-col-4 {
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col-1 {
+            flex-basis: 30%;
+        }
+
+        .footer-col-2 {
+            flex: 1;
+            text-align: center;
+        }
+
+        .footer-col-2 img {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col-3,
+        .footer-col-4 {
+            flex-basis: 12%;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .app-logo {
+            margin-top: 20px;
+        }
+
+        .app-logo img {
+            width: 140px;
+        }
+
+        .footer hr {
+            border: none;
+            background: #b5b5b5;
+            height: 1px;
+            margin: 20px 0;
+        }
+
+        .copyright {
+            text-align: center;
+        }
+
+        .menu-icon {
+            width: 28px;
+            margin-left: 20px;
+            display: none;
+        }
+
+        /* Cart badge */
+        .cart-icon {
+            position: relative;
+            display: inline-block;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: red;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 3px 6px;
+            border-radius: 50%;
+            display: none;
+        }
+
+        /* Footer glow icons */
+        .footer .social-icons .social-icon {
+            width: 40px;
+            margin: 0 10px;
+            transition: 0.3s ease;
+            border-radius: 50%;
+            background: white;
+            padding: 5px;
+        }
+
+        .footer .social-icons .whatsapp:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px #25D366;
+            filter: drop-shadow(0 0 10px #25D366);
+        }
+
+        .footer .social-icons .instagram:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px #E1306C;
+            filter: drop-shadow(0 0 10px #E1306C);
+        }
+
+        .footer .social-icons .youtube:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px #FF0000;
+            filter: drop-shadow(0 0 10px #FF0000);
+        }
+
+        /* New styles for animation */
+        .testimonial .col-3 {
+            opacity: 0;
+            transform: translateY(20px);
+            animation-name: fadeInUp;
+            animation-duration: 0.8s;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .image-hover-scale {
+            transition: transform 0.5s ease;
+        }
+
+        .image-hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+        .header-text-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            animation-name: slideInUp;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #046623;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 600px) {
+            .row {
+                text-align: center;
+            }
+            .col-2, .col-3, .col-4, .col-5 {
+                flex-basis: 100%;
+            }
+
+            .col-2 h1 {
+                font-size: 30px;
+                line-height: 40px;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #f8f8f8;
+                box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                transition: max-height 0.5s;
+            }
+
+            nav ul li {
+                display: block;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            
+            nav ul li a {
+                color: #555;
+            }
+            
+            .menu-icon {
+                display: block;
+                cursor: pointer;
+            }
+            
+            .navbar {
+                justify-content: space-between;
+                padding-right: 20px;
+            }
+
+            .logo img {
+                width: 100px;
+            }
+            
+            .brands {
+                margin: 50px auto;
+            }
+
+            .col-5 {
+                max-width: 80px;
+                margin: 20px auto;
+            }
+            
+            .footer-col-2, .footer-col-3, .footer-col-4 {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!------------------------- Header ------------------------->
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/mugavari thazhalai logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/125x125/E0F2E9/0E2C18?text=Logo'" width="125px" style="border-radius:50%;"></a>
+                </div>
+                <h1>Mugavari Thazhalai</h1>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#footer">Contact</a></li>
+                    </ul>
+                </nav>
+                <!-- Cart with badge -->
+                <a href="cart.html" class="cart-icon">
+                    <i class="fa fa-shopping-cart" style="font-size: 30px; color: #000;"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                <img src="images/menu.png" onerror="this.onerror=null;this.src='https://placehold.co/28x28/E0F2E9/0E2C18?text=Menu'" class="menu-icon" onclick="menutoggle()">
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                    <h1 class="header-text-animate" style="animation-delay: 0.2s;">Pollachi-யிலிருந்து தூய்மை, நம்பிக்கையுடன்<br>A NEW BRAND!</h1>
+                    <p class="header-text-animate" style="animation-delay: 0.4s;">Rooted in Pollachi. Trusted by hearts. Delivered to your door.</p>
+                    <a href="products.html" class="btn header-text-animate" style="animation-delay: 0.6s;">Explore Now &#8594;</a>
+                </div>
+                <div class="col-2">
+                    <img class="image-hover-scale" src="images/home image.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x650/E0F2E9/0E2C18?text=Home+Image'" style="width: 400px; height: 650px; border-radius: 10%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------- Categories ------------------------->
+    <div class="categories">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3"><img class="image-hover-scale" src="images/coconut oil.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x250/E0F2E9/0E2C18?text=Coconut+Oil'" style="border-radius: 8%;"></div>
+                <div class="col-3"><img class="image-hover-scale" src="images/groundnut oil.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x250/E0F2E9/0E2C18?text=Groundnut+Oil'" style="border-radius: 8%;"></div>
+                <div class="col-3"><img class="image-hover-scale" src="images/hand craft.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x250/E0F2E9/0E2C18?text=Hand+Craft'" style="border-radius: 8%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------- Offer ------------------------->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2"><img class="image-hover-scale" src="images/mugavari thazhalai logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x250/E0F2E9/0E2C18?text=Logo'" class="offer-img"></div>
+                <div class="col-2">
+                    <h2>🌴 Authentic South Indian Products from Pollachi</h2>
+                    <small>
+                        🥥 Coconut Oil – Cold-pressed & pure<br>
+                        🛠️ Coconut Shell Handcrafts – Customizable<br>
+                        🥜 Groundnut Oil – Wood-pressed goodness
+                    </small><br>
+                    <a href="products.html" class="btn">Buy Now &#8594;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-----------------------Testimonial ----------------------->
+    <div class="testimonial">
+        <div class="small-container">
+            <h2 class="title">Customer Feedback</h2>
+            <div class="row">
+                <div class="col-3" style="animation-delay: 0.2s;">
+                    <i class="fa fa-quote-left"></i>
+                    <p>The coconut oil is incredibly pure and smells wonderful. You can tell it's high quality from the first use. Highly recommend!</p>
+                    <img class="image-hover-scale" src="https://placehold.co/50x50/E0F2E9/0E2C18?text=AS" alt="Customer 1" onerror="this.onerror=null;this.src='https://placehold.co/50x50/E0F2E9/0E2C18?text=User'">
+                    <h3>Aravind S</h3>
+                </div>
+                <div class="col-3" style="animation-delay: 0.4s;">
+                    <i class="fa fa-quote-left"></i>
+                    <p>Mugavari Thazhalai's groundnut oil is the best I've used. It adds a delicious, authentic flavor to all my cooking.</p>
+                    <img class="image-hover-scale" src="https://placehold.co/50x50/E0F2E9/0E2C18?text=PL" alt="Customer 2" onerror="this.onerror=null;this.src='https://placehold.co/50x50/E0F2E9/0E2C18?text=User'">
+                    <h3>Priya L</h3>
+                </div>
+                <div class="col-3" style="animation-delay: 0.6s;">
+                    <i class="fa fa-quote-left"></i>
+                    <p>The coconut shell handicrafts are beautifully made and a perfect gift. I love that they are locally crafted and so unique.</p>
+                    <img class="image-hover-scale" src="https://placehold.co/50x50/E0F2E9/0E2C18?text=SK" alt="Customer 3" onerror="this.onerror=null;this.src='https://placehold.co/50x50/E0F2E9/0E2C18?text=User'">
+                    <h3>Saravanan K</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------- Brands ------------------------->
+    <div class="brands">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-5">
+                    <a href="https://www.fssai.gov.in/" target="_blank">
+                        <img src="images/Fssai-Logo-Vector.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/E0F2E9/0E2C18?text=FSSAI'" alt="FSSAI">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------- Footer ------------------------->
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="row" style="text-align:center;">
+                <div class="footer-col-2">
+                    <img src="images/mugavari thazhalai logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/120x120/E0F2E9/0E2C18?text=Logo'" style="border-radius: 20%; max-width: 120px;">
+                    <p style="font-weight: bold; color:#333; margin: 15px 0;">
+                        Pure & Authentic Products from Pollachi with Love ❤️
+                    </p>
+
+                    <!-- Social Media Icons -->
+                    <div class="social-icons">
+                        <a href="https://wa.me/919842535962" target="_blank">
+                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" onerror="this.onerror=null;this.src='https://placehold.co/40x40/25D366/ffffff?text=W'" alt="WhatsApp" class="social-icon whatsapp">
+                        </a>
+                        <a href="https://www.instagram.com/jackcity_official" target="_blank">
+                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" onerror="this.onerror=null;this.src='https://placehold.co/40x40/E1306C/ffffff?text=I'" alt="Instagram" class="social-icon instagram">
+                        </a>
+                        <a href="https://www.youtube.com/@JACKCITYVlog" target="_blank">
+                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" onerror="this.onerror=null;this.src='https://placehold.co/40x40/FF0000/ffffff?text=Y'" alt="YouTube" class="social-icon youtube">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <p class="copyright" style="text-align:center;">
+                © 2025 - SK | Mugavari Thazhalai
+            </p>
+        </div>
+    </div>
+
+    <!-- Back to top button -->
+    <a href="#" id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!---------------- JS ---------------->
+    <script>
+        // Menu toggle
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+        // Update cart count on load
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            let cartCount = document.getElementById("cart-count");
+
+            if (totalItems > 0) {
+                cartCount.style.display = "inline-block";
+                cartCount.textContent = totalItems;
+            } else {
+                cartCount.style.display = "none";
+            }
+        }
+        document.addEventListener("DOMContentLoaded", updateCartCount);
+
+        // Back to top button logic
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

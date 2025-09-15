@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mugavari Thazhalai — Products</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: "Poppins", sans-serif; color: #222; }
+    .flying-img { position: fixed; transition: all 0.9s cubic-bezier(.2, .9, .2, 1); z-index: 1200; pointer-events: none; border-radius: 0.5rem; }
+  </style>
+</head>
+<body class="bg-slate-50">
+
+  <!-- Header -->
+  <header class="container mx-auto px-4 pt-4">
+    <div class="flex items-center justify-between py-4">
+      <div class="logo">
+        <a href="index.html" class="block w-[125px] rounded-full overflow-hidden">
+          <img src="images/mugavari thazhalai logo.jpg" alt="Mugavari Thazhalai">
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center">
+        <ul class="flex items-center gap-4">
+          <li><a href="index.html" class="font-semibold text-gray-800 hover:text-red-500">Home</a></li>
+          <li><a href="#products" class="font-semibold text-gray-800 hover:text-red-500">Products</a></li>
+          <li><a href="#cart" class="font-semibold text-gray-800 hover:text-red-500">Cart</a></li>
+          <li><a href="#footer" class="font-semibold text-gray-800 hover:text-red-500">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a class="relative inline-block" href="#cart">
+          <img src="https://www.svgrepo.com/show/509205/cart-shopping-2.svg" alt="Cart" class="w-8 h-8">
+          <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+        </a>
+        <button id="menu-icon" class="md:hidden">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-white py-12 mb-6 text-center border-b border-gray-200">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl sm:text-4xl font-extrabold mb-2">Pollachi-யிலிருந்து தூய்மை, நம்பிக்கையுடன் — Mugavari Thazhalai</h1>
+      <p class="text-gray-600 text-lg mb-6">Pure, cold-pressed oils & sustainable coconut craft products — delivered to your door.</p>
+      <a href="#products" class="px-6 py-3 rounded-xl bg-red-500 text-white font-bold hover:bg-red-600">Shop Our Oils</a>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <main class="container mx-auto px-4" id="products">
+    <h2 class="text-2xl font-bold mt-8 mb-4">Our Oils</h2>
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-4 rounded-xl shadow-md text-center" data-name="Pure Coconut Oil" data-price="250">
+        <img src="images/coconut oil.jpg" class="w-full h-56 object-cover rounded-lg mb-4">
+        <h4 class="text-lg font-bold mb-1">Pure Coconut Oil</h4>
+        <div class="text-lg font-bold text-green-700 mb-3">₹250 / Litre</div>
+        <input type="number" class="qty-input w-20 p-2 text-center border rounded-lg mb-2" min="1" value="1">
+        <button class="add-btn px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Add to Cart</button>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-md text-center" data-name="Groundnut Oil" data-price="220">
+        <img src="images/groundnut oil.jpg" class="w-full h-56 object-cover rounded-lg mb-4">
+        <h4 class="text-lg font-bold mb-1">Groundnut Oil</h4>
+        <div class="text-lg font-bold text-green-700 mb-3">₹220 / Litre</div>
+        <input type="number" class="qty-input w-20 p-2 text-center border rounded-lg mb-2" min="1" value="1">
+        <button class="add-btn px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Add to Cart</button>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-md text-center" data-name="Sesame Oil" data-price="280">
+        <img src="/images/handCraft.jpg" class="w-full h-56 object-cover rounded-lg mb-4">
+        <h4 class="text-lg font-bold mb-1">Handcrafts</h4>
+        <!-- <div class="text-lg font-bold text-green-700 mb-3">₹280 / Litre</div> -->
+        <input type="number" class="qty-input w-20 p-2 text-center border rounded-lg mb-2" min="1" value="1">
+        <button class="add-btn px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Cart Section -->
+  <section id="cart" class="container mx-auto px-4 mt-12">
+    <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+    <div id="cart-items" class="bg-white rounded-xl shadow-md p-4 overflow-x-auto">
+      <p class="text-gray-500">Your cart is empty.</p>
+    </div>
+    <div class="flex justify-between items-center mt-4 hidden" id="cart-footer">
+      <h3 class="text-xl font-bold">Total: ₹<span id="cart-total">0</span></h3>
+      <button id="whatsappOrderBtn" class="px-6 py-3 bg-green-500 text-white rounded-xl hover:bg-green-600">Proceed to Order</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="bg-gray-900 text-white py-8 mt-12 text-center">
+    <p class="font-bold text-lg">Pure & Authentic Products from Pollachi with Love ❤️</p>
+    <p class="opacity-90 mt-2">© 2025 - SK | Mugavari Thazhalai</p>
+  </footer>
+
+  <!-- WhatsApp Order Modal -->
+  <div id="orderModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg p-6 animate-fadeIn">
+      <h3 class="text-2xl font-bold mb-4 text-center">Place Your Order</h3>
+      <form id="orderForm">
+        <input type="text" id="name" placeholder="Your Name" class="w-full px-4 py-2 border rounded-lg mb-3" required>
+        <input type="tel" id="phone" placeholder="Phone Number (with country code)" class="w-full px-4 py-2 border rounded-lg mb-3" required>
+        <textarea id="address" placeholder="Delivery Address" class="w-full px-4 py-2 border rounded-lg mb-3" required></textarea>
+        <div class="flex justify-center gap-4">
+          <button type="submit" class="px-6 py-3 bg-green-500 text-white rounded-xl hover:bg-green-600">Send via WhatsApp</button>
+          <button type="button" id="closeModalBtn" class="px-6 py-3 bg-gray-300 rounded-xl hover:bg-gray-400">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const whatsappBusinessNumber = "919842535962"; // Your WhatsApp business number
+
+    function getCart(){ return JSON.parse(localStorage.getItem("cart"))||[]; }
+    function setCart(cart){ localStorage.setItem("cart",JSON.stringify(cart)); }
+
+    function updateCartUI(){
+      const cart=getCart(), items=document.getElementById("cart-items"), footer=document.getElementById("cart-footer"), badge=document.getElementById("cart-count");
+      items.innerHTML=""; let total=0;
+      if(cart.length===0){ items.innerHTML="<p class='text-gray-500'>Your cart is empty.</p>"; footer.classList.add("hidden"); badge.classList.add("hidden"); return; }
+
+      // Create table layout
+      let table=`<table class="w-full text-left border">
+        <thead><tr class="bg-gray-100">
+          <th class="p-2">Product</th>
+          <th class="p-2">Price</th>
+          <th class="p-2">Qty</th>
+          <th class="p-2">Subtotal</th>
+          <th class="p-2">Remove</th>
+        </tr></thead><tbody>`;
+      cart.forEach((it,i)=>{ 
+        total+=it.price*it.qty;
+        table+=`<tr class="border-t">
+          <td class="p-2">${it.name}</td>
+          <td class="p-2">₹${it.price}</td>
+          <td class="p-2">${it.qty}</td>
+          <td class="p-2">₹${it.price*it.qty}</td>
+          <td class="p-2"><button onclick="removeItem(${i})" class="text-red-500">X</button></td>
+        </tr>`;
+      });
+      table+=`</tbody></table>`;
+      items.innerHTML=table;
+
+      document.getElementById("cart-total").textContent=total;
+      footer.classList.remove("hidden");
+      badge.textContent=cart.reduce((s,it)=>s+it.qty,0); badge.classList.remove("hidden");
+    }
+
+    function removeItem(i){ const cart=getCart(); cart.splice(i,1); setCart(cart); updateCartUI(); }
+
+    document.addEventListener("click",e=>{
+      if(e.target.classList.contains("add-btn")){
+        const card=e.target.closest("[data-name]");
+        const name=card.dataset.name, price=+card.dataset.price, qty=+card.querySelector(".qty-input").value;
+        const cart=getCart(); const ex=cart.find(i=>i.name===name);
+        if(ex) ex.qty+=qty; else cart.push({name,price,qty});
+        setCart(cart); updateCartUI();
+      }
+    });
+
+    document.getElementById("whatsappOrderBtn").addEventListener("click",()=>{document.getElementById("orderModal").classList.remove("hidden"); document.getElementById("orderModal").classList.add("flex");});
+    document.getElementById("closeModalBtn").addEventListener("click",()=>{document.getElementById("orderModal").classList.add("hidden");});
+    
+    document.getElementById("orderForm").addEventListener("submit",e=>{
+      e.preventDefault(); 
+      const name=document.getElementById("name").value, phone=document.getElementById("phone").value, address=document.getElementById("address").value, cart=getCart();
+      let msg=`Hello, I'd like to place an order:\n\n`; cart.forEach(i=>msg+=`- ${i.name} x ${i.qty}\n`); msg+=`\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
+      window.open(`https://wa.me/${whatsappBusinessNumber}?text=${encodeURIComponent(msg)}`,"_blank");
+
+      // Clear cart after order
+      localStorage.removeItem("cart");
+      updateCartUI();
+      document.getElementById("orderModal").classList.add("hidden");
+    });
+
+    document.addEventListener("DOMContentLoaded",updateCartUI);
+  </script>
+</body>
+</html>
