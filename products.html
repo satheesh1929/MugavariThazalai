@@ -22,7 +22,7 @@
         </a>
       </div>
       <nav class="hidden md:flex items-center">
-        <ul class="flex items-center gap-4">
+        <ul class="flex items-center gap-6">
           <li><a href="index.html" class="font-semibold text-gray-800 hover:text-red-500">Home</a></li>
           <li><a href="#products" class="font-semibold text-gray-800 hover:text-red-500">Products</a></li>
           <li><a href="#cart" class="font-semibold text-gray-800 hover:text-red-500">Cart</a></li>
@@ -31,7 +31,7 @@
       </nav>
       <div class="flex items-center gap-4">
         <a class="relative inline-block" href="#cart">
-          <img src="https://www.svgrepo.com/show/509205/cart-shopping-2.svg" alt="Cart" class="w-8 h-8">
+          <img src="./images/cart.png" alt="Cart" class="w-8 h-8">
           <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
         </a>
         <button id="menu-icon" class="md:hidden">☰</button>
@@ -40,51 +40,65 @@
   </header>
 
   <!-- Hero -->
-  <section class="bg-white py-12 mb-6 text-center border-b border-gray-200">
+  <section class="bg-white py-12 mb-6 text-center border-b border-gray-200 shadow-sm">
     <div class="container mx-auto px-4">
-      <h1 class="text-3xl sm:text-4xl font-extrabold mb-2">Pollachi-யிலிருந்து தூய்மை, நம்பிக்கையுடன் — Mugavari Thazhai</h1>
-      <p class="text-gray-600 text-lg mb-6">Pure, cold-pressed oils & sustainable coconut craft products — delivered to your door.</p>
-      <a href="#products" class="px-6 py-3 rounded-xl bg-red-500 text-white font-bold hover:bg-red-600">Shop Our Oils</a>
+      <h1 class="text-3xl sm:text-4xl font-extrabold mb-2 text-gray-900">
+        Pollachi-யிலிருந்து தூய்மை, நம்பிக்கையுடன் — Mugavari Thazhai
+      </h1>
+      <p class="text-gray-600 text-lg mb-6">
+        Pure, cold-pressed oils & sustainable coconut craft products — delivered to your door.
+      </p>
+      <a href="#products" class="px-6 py-3 rounded-xl bg-red-500 text-white font-bold hover:bg-red-600 transition">
+        Shop Our Oils
+      </a>
     </div>
   </section>
 
   <!-- Products -->
   <main class="container mx-auto px-4" id="products">
-    <h2 class="text-2xl font-bold mt-8 mb-4">Our Oils</h2>
+    <h2 class="text-2xl font-bold mt-8 mb-6 text-gray-900">Our Oils</h2>
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-white p-4 rounded-xl shadow-md text-center" data-name="Pure Coconut Oil" data-price="250">
+      
+      <!-- Product Card -->
+      <div class="bg-white p-4 rounded-xl shadow-lg text-center hover:scale-105 transition" data-name="Pure Coconut Oil" data-price="250">
         <img src="images/coconut oil.jpg" class="w-full h-56 object-cover rounded-lg mb-4">
-        <h4 class="text-lg font-bold mb-1">Pure Coconut Oil</h4>
+        <h4 class="text-lg font-bold mb-1 text-gray-900">Pure Coconut Oil</h4>
         <div class="text-lg font-bold text-green-700 mb-3">₹250 / Litre</div>
         <input type="number" class="qty-input w-20 p-2 text-center border rounded-lg mb-2" min="1" value="1">
-        <button class="add-btn px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Add to Cart</button>
+        <button class="add-btn px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Add to Cart</button>
       </div>
-      <div class="bg-white p-4 rounded-xl shadow-md text-center" data-name="Groundnut Oil" data-price="220">
+
+      <!-- Product Card -->
+      <div class="bg-white p-4 rounded-xl shadow-lg text-center hover:scale-105 transition" data-name="Groundnut Oil" data-price="220">
         <img src="images/groundnut oil.jpg" class="w-full h-56 object-cover rounded-lg mb-4">
-        <h4 class="text-lg font-bold mb-1">Groundnut Oil</h4>
+        <h4 class="text-lg font-bold mb-1 text-gray-900">Groundnut Oil</h4>
         <div class="text-lg font-bold text-green-700 mb-3">₹220 / Litre</div>
         <input type="number" class="qty-input w-20 p-2 text-center border rounded-lg mb-2" min="1" value="1">
-        <button class="add-btn px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Add to Cart</button>
+        <button class="add-btn px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Add to Cart</button>
       </div>
-      <div class="bg-white p-4 rounded-xl shadow-md text-center" data-name="Sesame Oil" data-price="280">
-        <img src="/images/handCraft.jpg" class="w-full h-56 object-cover rounded-lg mb-4">
-        <h4 class="text-lg font-bold mb-1">Handcrafts</h4>
-        <!-- <div class="text-lg font-bold text-green-700 mb-3">₹280 / Litre</div> -->
+
+      <!-- Product Card -->
+      <div class="bg-white p-4 rounded-xl shadow-lg text-center hover:scale-105 transition" data-name="Handcrafts" data-price="300">
+        <img src="images/handCraft.jpg" class="w-full h-56 object-cover rounded-lg mb-4">
+        <h4 class="text-lg font-bold mb-1 text-gray-900">Handcrafts</h4>
+        <div class="text-lg font-bold text-green-700 mb-3">₹300 / Piece</div>
         <input type="number" class="qty-input w-20 p-2 text-center border rounded-lg mb-2" min="1" value="1">
-        <button class="add-btn px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Add to Cart</button>
+        <button class="add-btn px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Add to Cart</button>
       </div>
+
     </div>
   </main>
 
+  
   <!-- Cart Section -->
   <section id="cart" class="container mx-auto px-4 mt-12">
-    <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+    <h2 class="text-2xl font-bold mb-4 text-gray-900">Your Cart</h2>
     <div id="cart-items" class="bg-white rounded-xl shadow-md p-4 overflow-x-auto">
       <p class="text-gray-500">Your cart is empty.</p>
     </div>
     <div class="flex justify-between items-center mt-4 hidden" id="cart-footer">
       <h3 class="text-xl font-bold">Total: ₹<span id="cart-total">0</span></h3>
-      <button id="whatsappOrderBtn" class="px-6 py-3 bg-green-500 text-white rounded-xl hover:bg-green-600">Proceed to Order</button>
+      <button id="whatsappOrderBtn" class="px-6 py-3 bg-green-500 text-white rounded-xl hover:bg-green-600 transition">Proceed to Order</button>
     </div>
   </section>
 
@@ -103,15 +117,15 @@
         <input type="tel" id="phone" placeholder="Phone Number (with country code)" class="w-full px-4 py-2 border rounded-lg mb-3" required>
         <textarea id="address" placeholder="Delivery Address" class="w-full px-4 py-2 border rounded-lg mb-3" required></textarea>
         <div class="flex justify-center gap-4">
-          <button type="submit" class="px-6 py-3 bg-green-500 text-white rounded-xl hover:bg-green-600">Send via WhatsApp</button>
-          <button type="button" id="closeModalBtn" class="px-6 py-3 bg-gray-300 rounded-xl hover:bg-gray-400">Cancel</button>
+          <button type="submit" class="px-6 py-3 bg-green-500 text-white rounded-xl hover:bg-green-600 transition">Send via WhatsApp</button>
+          <button type="button" id="closeModalBtn" class="px-6 py-3 bg-gray-300 rounded-xl hover:bg-gray-400 transition">Cancel</button>
         </div>
       </form>
     </div>
   </div>
 
   <script>
-    const whatsappBusinessNumber = "919842535962"; // Your WhatsApp business number
+    const whatsappBusinessNumber = "919842535962"; 
 
     function getCart(){ return JSON.parse(localStorage.getItem("cart"))||[]; }
     function setCart(cart){ localStorage.setItem("cart",JSON.stringify(cart)); }
@@ -121,7 +135,6 @@
       items.innerHTML=""; let total=0;
       if(cart.length===0){ items.innerHTML="<p class='text-gray-500'>Your cart is empty.</p>"; footer.classList.add("hidden"); badge.classList.add("hidden"); return; }
 
-      // Create table layout
       let table=`<table class="w-full text-left border">
         <thead><tr class="bg-gray-100">
           <th class="p-2">Product</th>
@@ -146,6 +159,8 @@
       document.getElementById("cart-total").textContent=total;
       footer.classList.remove("hidden");
       badge.textContent=cart.reduce((s,it)=>s+it.qty,0); badge.classList.remove("hidden");
+
+      
     }
 
     function removeItem(i){ const cart=getCart(); cart.splice(i,1); setCart(cart); updateCartUI(); }
@@ -169,7 +184,6 @@
       let msg=`Hello, I'd like to place an order:\n\n`; cart.forEach(i=>msg+=`- ${i.name} x ${i.qty}\n`); msg+=`\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
       window.open(`https://wa.me/${whatsappBusinessNumber}?text=${encodeURIComponent(msg)}`,"_blank");
 
-      // Clear cart after order
       localStorage.removeItem("cart");
       updateCartUI();
       document.getElementById("orderModal").classList.add("hidden");
@@ -179,3 +193,4 @@
   </script>
 </body>
 </html>
+
