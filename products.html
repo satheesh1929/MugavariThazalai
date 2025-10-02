@@ -181,7 +181,7 @@
     document.getElementById("orderForm").addEventListener("submit",e=>{
       e.preventDefault(); 
       const name=document.getElementById("name").value, phone=document.getElementById("phone").value, address=document.getElementById("address").value, cart=getCart();
-      let msg=`Hello, I'd like to place an order:\n\n`; cart.forEach(i=>msg+=`- ${i.name} x ${i.qty}\n`); msg+=`\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
+      let msg = `Hello, I'd like to place an order:\n\n`; cart.forEach(i => msg += `- ${i.name} x ${i.qty}\n`); msg += `\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\n\nThank You! for your order`;
       window.open(`https://wa.me/${whatsappBusinessNumber}?text=${encodeURIComponent(msg)}`,"_blank");
 
       localStorage.removeItem("cart");
