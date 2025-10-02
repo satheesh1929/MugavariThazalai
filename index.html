@@ -196,7 +196,7 @@
         .col-2 .offer-img {
             padding: 50px;
         }
-
+        
         small {
             color: #555;
         }
@@ -342,6 +342,62 @@
             position: relative;
             display: inline-block;
         }
+        /* Hamburger menu for mobile */
+.menu-icon {
+    display: none; /* show only on mobile */
+    width: 30px;
+    cursor: pointer;
+}
+
+
+@media(max-width:900px){
+    nav ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #f8f8f8;
+        flex-direction: column;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .col-2 {
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .col-2 img {
+        width: 80%;
+        padding: 20px 0;
+    }
+
+    .col-2 h1 {
+        font-size: 36px;
+        line-height: 44px;
+    }
+}
+
+@media(max-width:600px){
+    .testimonial .col-3, .col-3, .col-4, .col-5 {
+        flex-basis: 100%;
+    }
+
+    .logo img {
+        width: 100px;
+    }
+}
 
         .cart-count {
             position: absolute;
@@ -455,6 +511,7 @@
             opacity: 1;
             visibility: visible;
         }
+        
         /* Media query for mobile devices */
         @media only screen and (max-width: 600px) {
             .row {
@@ -517,6 +574,7 @@
                 text-align: center;
             }
         }
+        
     </style>
 </head>
 
@@ -541,7 +599,7 @@
                     <i class="fa fa-shopping-cart" style="font-size: 30px; color: #000;"></i>
                     <span class="cart-count" id="cart-count">0</span>
                 </a>
-                <img src="" onerror="this.onerror=null;this.src='https://placehold.co/28x28/E0F2E9/0E2C18?text=Menu'" class="menu-icon" onclick="menutoggle()">
+                <img src="./images/menu.png" class="menu-icon" onclick="menutoggle()">
             </div>
 
             <div class="row">
